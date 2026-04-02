@@ -207,6 +207,36 @@
 
 <!-- 약관 / 개인정보처리방침 모달 시작 -->
 <style>
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 18px;
+}
+
+.footer-links a {
+  display: inline-block;
+}
+
+.policy-modal .policy-close {
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #000000;
+  padding: 0;
+}
+
+.policy-modal .policy-close:hover {
+  color: #000000;
+}
+
+.policy-modal .policy-close::before,
+.policy-modal .policy-close::after {
+  content: none !important;
+  display: none !important;
+}
+	
   .policy-modal {
     display: none;
     position: fixed;
