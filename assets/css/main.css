@@ -4157,9 +4157,15 @@ input, select, textarea {
 
 		}
 /* =========================================================
-   CONTENT mini-posts: image on top, text below
+   MINI POSTS FINAL OVERRIDE
+   - 본문 mini-posts : 이미지 위 / 텍스트 아래
+   - 본문 mini-posts : 이미지 높이 통일
+   - sidebar mini-posts.small : 모바일 썸네일 크기 통일
    ========================================================= */
 
+/* -----------------------------
+   1) 본문 mini-posts
+   ----------------------------- */
 #content .mini-posts article {
   display: flex !important;
   flex-direction: column !important;
@@ -4170,15 +4176,22 @@ input, select, textarea {
   width: 100% !important;
   margin-right: 0 !important;
   margin-bottom: 1.25rem !important;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
 }
 
 #content .mini-posts article .image > a {
   display: block !important;
   width: 100% !important;
+  height: 100% !important;
 }
 
 #content .mini-posts article .image img {
   width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
   display: block !important;
 }
 
@@ -4190,6 +4203,85 @@ input, select, textarea {
   margin-bottom: 1.25rem !important;
 }
 
-#content .mini-posts article .actions.fixed {
-  margin-top: 0 !important;
+/* -----------------------------
+   2) 사이드바 mini-posts.small 기본 정리
+   ----------------------------- */
+.mini-posts.small article {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.mini-posts.small article .image {
+  width: 88px !important;
+  min-width: 88px !important;
+  height: 66px !important;
+  margin-right: 1rem !important;
+  margin-bottom: 0 !important;
+  overflow: hidden !important;
+  border-radius: 10px !important;
+}
+
+.mini-posts.small article .image > a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mini-posts.small article .image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+.mini-posts.small article .content {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+/* -----------------------------
+   3) 모바일에서 mini-posts.small 더 안정적으로
+   ----------------------------- */
+@media screen and (max-width: 736px) {
+  .mini-posts.small article {
+    align-items: center !important;
+  }
+
+  .mini-posts.small article .image {
+    width: 96px !important;
+    min-width: 96px !important;
+    height: 72px !important;
+    margin-right: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .mini-posts.small article .image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .mini-posts.small article .content {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+}
+
+/* -----------------------------
+   4) 아주 작은 화면에서 여백 미세 조정
+   ----------------------------- */
+@media screen and (max-width: 480px) {
+  #content .mini-posts article .image {
+    border-radius: 10px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .mini-posts.small article .image {
+    width: 84px !important;
+    min-width: 84px !important;
+    height: 63px !important;
+    margin-right: 0.875rem !important;
+    border-radius: 8px !important;
+  }
 }
