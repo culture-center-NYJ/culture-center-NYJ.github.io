@@ -4183,6 +4183,7 @@ input, select, textarea {
   aspect-ratio: 16 / 5.5 !important;
   overflow: hidden !important;
   border-radius: 12px !important;
+  background: #ffffff !important; /* 🔥 흰 배경 추가 */
 }
 
 #content .mini-posts article .image a,
@@ -4193,7 +4194,7 @@ input, select, textarea {
 }
 
 #content .mini-posts article .image img {
-  object-fit: cover !important;
+  object-fit: contain !important; /* 🔥 핵심: 이미지 안 잘림 */
 }
 
 #content .mini-posts article .content {
@@ -4218,6 +4219,7 @@ input, select, textarea {
     margin-right: 0 !important;
     margin-bottom: 1rem !important;
     aspect-ratio: 16 / 6 !important;
+    background: #ffffff !important; /* 모바일도 동일 */
   }
 }
 
