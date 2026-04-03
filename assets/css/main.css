@@ -4239,29 +4239,33 @@ input, select, textarea {
   margin-bottom: 0 !important;
   overflow: hidden !important;
   border-radius: 10px !important;
+  background: #ffffff !important; /* 🔥 여백 자연스럽게 */
+  padding: 4px !important; /* 🔥 핵심: 이미지 안쪽 여백 */
+  box-sizing: border-box !important;
 }
 
 .mini-posts.small article .image > a {
   display: block !important;
   width: 100% !important;
-  height: 80% !important;
+  height: 100% !important; /* 🔥 80% 제거 */
 }
 
 .mini-posts.small article .image img {
   width: 100% !important;
-  height: 80% !important;
-  object-fit: cover !important;
+  height: 100% !important;
+  object-fit: contain !important; /* 🔥 핵심: 안 잘림 */
   object-position: center center !important;
   display: block !important;
 }
 
+/* 텍스트 영역 */
 .mini-posts.small article .content {
   flex: 1 1 auto !important;
   min-width: 0 !important;
 }
 
 /* -----------------------------
-   3) 모바일에서 mini-posts.small 더 안정적으로
+   3) 모바일 대응
    ----------------------------- */
 @media screen and (max-width: 736px) {
   .mini-posts.small article {
@@ -4269,16 +4273,16 @@ input, select, textarea {
   }
 
   .mini-posts.small article .image {
-    width: 90% !important;
-    height: 90% !important;
+    width: 88px !important;
+    height: 66px !important;
     margin-right: 1rem !important;
-    margin-bottom: 0 !important;
+    padding: 4px !important; /* 유지 */
   }
 
   .mini-posts.small article .image img {
-    width: 90% !important;
-    height: 90% !important;
-    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
   }
 
   .mini-posts.small article .content {
@@ -4288,7 +4292,7 @@ input, select, textarea {
 }
 
 /* -----------------------------
-   4) 아주 작은 화면에서 여백 미세 조정
+   4) 아주 작은 화면
    ----------------------------- */
 @media screen and (max-width: 480px) {
   #content .mini-posts article .image {
@@ -4297,9 +4301,11 @@ input, select, textarea {
   }
 
   .mini-posts.small article .image {
-    width: 90% !important;
-    height: 90% !important;
+    width: 88px !important;
+    height: 66px !important;
     margin-right: 0.875rem !important;
     border-radius: 8px !important;
+    padding: 3px !important; /* 살짝 줄임 */
   }
+}
 }
