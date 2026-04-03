@@ -4195,6 +4195,7 @@ input, select, textarea {
 
 #content .mini-posts article .image img {
   object-fit: contain !important; /* 🔥 핵심: 이미지 안 잘림 */
+  object-position: left center !important; 
 }
 
 #content .mini-posts article .content {
