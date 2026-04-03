@@ -4148,8 +4148,6 @@ input, select, textarea {
 						width: 100%;
 					}
 
-		}
-
 /* 추가 */
 
 /* =========================
@@ -4794,3 +4792,7 @@ textarea:focus-visible {
     transition: none !important;
   }
 }
+
+		}
+
+
