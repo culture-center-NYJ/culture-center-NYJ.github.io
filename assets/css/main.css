@@ -4242,12 +4242,12 @@ input, select, textarea {
 .mini-posts.small article .image > a {
   display: block !important;
   width: 100% !important;
-  height: 100% !important;
+  height: 80% !important;
 }
 
 .mini-posts.small article .image img {
   width: 100% !important;
-  height: 100% !important;
+  height: 80% !important;
   object-fit: cover !important;
   object-position: center center !important;
   display: block !important;
