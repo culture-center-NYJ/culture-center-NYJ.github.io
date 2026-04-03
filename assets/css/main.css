@@ -4149,3 +4149,160 @@ input, select, textarea {
 					}
 
 		}
+
+/* =========================================================
+   IMAGE RATIO FIX — service-info / mini-posts
+   append at the very end of main.css
+   ========================================================= */
+
+/* 공통: 이미지 박스 넘침 정리 */
+#service-info .posts article .image,
+.mini-posts article .image,
+.mini-posts.small article .image {
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  background: #ece6dc !important;
+  box-shadow: 0 8px 20px rgba(26, 26, 23, 0.08) !important;
+}
+
+/* service-info 메인 카드 이미지 비율 통일 */
+#service-info .posts article .image,
+#service-info .posts article .image.fit {
+  aspect-ratio: 4 / 3 !important;
+  width: 100% !important;
+  margin-bottom: 1.25rem !important;
+}
+
+#service-info .posts article .image > a,
+#service-info .posts article .image.fit > a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#service-info .posts article .image img,
+#service-info .posts article .image.fit img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  transition: transform 0.35s ease !important;
+}
+
+#service-info .posts article:hover .image img {
+  transform: scale(1.04) !important;
+}
+
+/* 본문 mini-posts 이미지 비율 통일 */
+#content .mini-posts article .image {
+  aspect-ratio: 16 / 10 !important;
+  width: 100% !important;
+  flex: 0 0 auto !important;
+}
+
+#content .mini-posts article .image > a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#content .mini-posts article .image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+/* 사이드바 mini-posts.small 썸네일 비율 통일 */
+#sidebar .mini-posts.small article {
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+#sidebar .mini-posts.small article .image {
+  aspect-ratio: 1 / 1 !important;
+  width: 6.75rem !important;
+  min-width: 6.75rem !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+#sidebar .mini-posts.small article .image > a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#sidebar .mini-posts.small article .image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+/* 미니포스트 본문 정렬 안정화 */
+.mini-posts article .content {
+  min-width: 0 !important;
+}
+
+.mini-posts.small article .content a,
+.mini-posts article .content p,
+.mini-posts article .content a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 선택: 너무 길면 3줄 정도로 정리 */
+#sidebar .mini-posts.small article .content a {
+  -webkit-line-clamp: 3;
+}
+
+#content .mini-posts article .content p {
+  -webkit-line-clamp: 3;
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 980px) {
+  #sidebar .mini-posts.small article .image {
+    width: 6rem !important;
+    min-width: 6rem !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #service-info .posts article .image,
+  #service-info .posts article .image.fit {
+    aspect-ratio: 16 / 11 !important;
+  }
+
+  #content .mini-posts article .image {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  #sidebar .mini-posts.small article {
+    align-items: flex-start !important;
+  }
+
+  #sidebar .mini-posts.small article .image {
+    width: 5.5rem !important;
+    min-width: 5.5rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #service-info .posts article .image,
+  #service-info .posts article .image.fit,
+  #content .mini-posts article .image {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  #sidebar .mini-posts.small article .image {
+    width: 5rem !important;
+    min-width: 5rem !important;
+  }
+}
