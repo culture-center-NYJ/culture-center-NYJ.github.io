@@ -4156,43 +4156,44 @@ input, select, textarea {
 					}
 
 		}
-/* =========================================================
-   MINI POSTS FINAL OVERRIDE
-   - 본문 mini-posts : 이미지 위 / 텍스트 아래
-   - 본문 mini-posts : 이미지 높이 통일
-   - sidebar mini-posts.small : 모바일 썸네일 크기 통일
-   ========================================================= */
+/* ===============================
+   mini-posts size refinement
+   - apply only to main content mini-posts
+   - keep sidebar .mini-posts.small unchanged
+================================== */
 
-/* -----------------------------
-   1) 본문 mini-posts
-   ----------------------------- */
 #content .mini-posts article {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
+  display: block !important;
+  border-bottom: 1px solid #e6e6e6 !important;
+  margin-bottom: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+#content .mini-posts article:last-of-type {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 #content .mini-posts article .image {
+  display: block !important;
   width: 100% !important;
   margin-right: 0 !important;
   margin-bottom: 1.25rem !important;
-  aspect-ratio: 16 / 9 !important;
+  aspect-ratio: 16 / 5.5 !important;
   overflow: hidden !important;
   border-radius: 12px !important;
 }
 
-#content .mini-posts article .image > a {
+#content .mini-posts article .image a,
+#content .mini-posts article .image img {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
 }
 
 #content .mini-posts article .image img {
-  width: 100% !important;
-  height: 100% !important;
   object-fit: cover !important;
-  object-position: center center !important;
-  display: block !important;
 }
 
 #content .mini-posts article .content {
@@ -4200,7 +4201,24 @@ input, select, textarea {
 }
 
 #content .mini-posts article .content p {
-  margin-bottom: 1.25rem !important;
+  margin-bottom: 1rem !important;
+}
+
+#content .mini-posts article .actions {
+  margin-top: 0.5rem !important;
+}
+
+@media screen and (max-width: 736px) {
+  #content .mini-posts article {
+    display: block !important;
+  }
+
+  #content .mini-posts article .image {
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-bottom: 1rem !important;
+    aspect-ratio: 16 / 6 !important;
+  }
 }
 
 /* -----------------------------
