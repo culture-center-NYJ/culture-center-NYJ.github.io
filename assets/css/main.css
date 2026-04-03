@@ -3811,7 +3811,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#banner {
-				height: 40rem;
+				height: 30rem;
 			}
 
 				#banner .indicators {
@@ -3831,7 +3831,7 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#banner {
-				height: 30rem;
+				height: 26rem;
 			}
 
 		}
