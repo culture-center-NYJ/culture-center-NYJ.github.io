@@ -2983,13 +2983,20 @@ input, select, textarea {
 		}
 
 			.mini-posts.small article .image {
-				margin-bottom: 0;
-				margin-right: 2rem;
-				width: auto;
+				  width: 100% !important;
+  				  margin-right: 0 !important;
+    		      margin-bottom: 1.25rem !important;
+  				  aspect-ratio: 16 / 9 !important;
+  				  overflow: hidden !important;
+  				  border-radius: 14px !important;
 			}
 
 				.mini-posts.small article .image img {
-					width: auto;
+					  width: 100% !important;
+					  height: 100% !important;					  
+					  object-fit: cover !important;
+					  object-position: center center !important;
+					  display: block !important;
 				}
 
 	}
@@ -4149,3 +4156,40 @@ input, select, textarea {
 					}
 
 		}
+/* =========================================================
+   CONTENT mini-posts: image on top, text below
+   ========================================================= */
+
+#content .mini-posts article {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+#content .mini-posts article .image {
+  width: 100% !important;
+  margin-right: 0 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+#content .mini-posts article .image > a {
+  display: block !important;
+  width: 100% !important;
+}
+
+#content .mini-posts article .image img {
+  width: 100% !important;
+  display: block !important;
+}
+
+#content .mini-posts article .content {
+  width: 100% !important;
+}
+
+#content .mini-posts article .content p {
+  margin-bottom: 1.25rem !important;
+}
+
+#content .mini-posts article .actions.fixed {
+  margin-top: 0 !important;
+}
