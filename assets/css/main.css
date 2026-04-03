@@ -4267,16 +4267,15 @@ input, select, textarea {
   }
 
   .mini-posts.small article .image {
-    width: 96px !important;
-    min-width: 96px !important;
-    height: 72px !important;
+    width: 90% !important;
+    height: 90% !important;
     margin-right: 1rem !important;
     margin-bottom: 0 !important;
   }
 
   .mini-posts.small article .image img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 90% !important;
+    height: 90% !important;
     object-fit: cover !important;
   }
 
@@ -4296,9 +4295,8 @@ input, select, textarea {
   }
 
   .mini-posts.small article .image {
-    width: 84px !important;
-    min-width: 84px !important;
-    height: 63px !important;
+    width: 90% !important;
+    height: 90% !important;
     margin-right: 0.875rem !important;
     border-radius: 8px !important;
   }
