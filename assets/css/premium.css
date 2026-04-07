@@ -1,0 +1,871 @@
+/* =============================================
+   秀 more — Premium Design System
+   ============================================= */
+
+/* 1. Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap');
+
+/* 2. Design Tokens */
+:root {
+  --su-navy:        #0D1B2A;
+  --su-navy-mid:    #1A3A5C;
+  --su-navy-light:  #263D5A;
+  --su-gold:        #C9A457;
+  --su-gold-light:  #E5C880;
+  --su-gold-dim:    rgba(201, 164, 87, 0.12);
+  --su-text:        #1C1C2E;
+  --su-muted:       #64748B;
+  --su-pale:        #94A3B8;
+  --su-bg:          #FFFFFF;
+  --su-bg-soft:     #F9F8F5;
+  --su-bg-card:     #FFFFFF;
+  --su-border:      #E8E6DF;
+  --su-shadow-sm:   0 1px 4px rgba(13, 27, 42, 0.07), 0 1px 2px rgba(13, 27, 42, 0.04);
+  --su-shadow-md:   0 4px 20px rgba(13, 27, 42, 0.10), 0 2px 6px rgba(13, 27, 42, 0.05);
+  --su-shadow-lg:   0 16px 48px rgba(13, 27, 42, 0.14), 0 4px 12px rgba(13, 27, 42, 0.07);
+  --su-radius:      14px;
+  --su-radius-sm:   8px;
+  --su-radius-lg:   20px;
+  --su-transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============ BASE ============ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--su-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, input, select, textarea {
+  font-family: 'Inter', 'Noto Serif KR', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  color: var(--su-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif KR', 'Inter', Georgia, serif;
+  color: var(--su-navy);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+p {
+  color: var(--su-muted);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--su-gold);
+  text-decoration: none;
+  transition: color var(--su-transition);
+}
+
+a:hover {
+  color: var(--su-gold-light);
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(201, 164, 87, 0.22);
+  color: var(--su-navy);
+}
+
+/* ============ HEADER ============ */
+
+#header {
+  background: rgba(10, 20, 36, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201, 164, 87, 0.20);
+  box-shadow: 0 2px 24px rgba(13, 27, 42, 0.20);
+  height: 64px;
+  line-height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+body {
+  padding-top: 64px;
+}
+
+#header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#header a.logo {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  line-height: 64px;
+}
+
+#header a.logo strong {
+  color: var(--su-gold);
+  font-weight: 700;
+}
+
+#header nav > ul > li a {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  transition: all var(--su-transition);
+  text-decoration: none;
+}
+
+#header nav > ul > li a:hover,
+#header nav > ul > li:hover a {
+  color: #FFFFFF;
+  background: rgba(201, 164, 87, 0.18);
+}
+
+#header a[href="#navPanel"] {
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  transition: color var(--su-transition);
+}
+
+#header a[href="#navPanel"]:hover {
+  color: var(--su-gold);
+}
+
+/* Mobile header height override */
+@media screen and (max-width: 736px) {
+  #header {
+    height: 52px;
+    line-height: 52px;
+  }
+  body {
+    padding-top: 52px;
+  }
+  #header a.logo {
+    font-size: 1.1rem;
+    line-height: 52px;
+  }
+  #header a[href="#navPanel"] {
+    height: 2.2rem;
+    line-height: 2.2rem;
+  }
+}
+
+/* ============ BANNER ============ */
+
+#banner {
+  height: clamp(500px, 68vh, 760px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Strong gradient overlay — hides the blurry background image entirely */
+#banner > article::before {
+  background: linear-gradient(
+    150deg,
+    rgba(10, 18, 32, 0.94) 0%,
+    rgba(18, 40, 72, 0.72) 45%,
+    rgba(10, 18, 32, 0.90) 100%
+  ) !important;
+  opacity: 1 !important;
+  z-index: 1;
+  transition: none !important;
+}
+
+body.is-preload #banner > article::before {
+  opacity: 1 !important;
+}
+
+/* Gold shimmer line at bottom of banner */
+#banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--su-gold) 25%,
+    var(--su-gold-light) 55%,
+    transparent 100%
+  );
+  z-index: 10;
+}
+
+/* Text content area */
+#banner > article .inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5.5rem;
+}
+
+#banner .features {
+  position: relative;
+  z-index: 2;
+}
+
+/* Remove default blue box — use transparent with gold left-border */
+#banner .features > a.alt {
+  background: transparent !important;
+  padding: 2.5rem 3.5rem;
+  width: auto !important;
+  max-width: 660px;
+  border-left: 3px solid var(--su-gold) !important;
+  border-radius: 0;
+  display: block;
+  box-shadow: none !important;
+}
+
+/* Hide the default ::after icon arrow in banner */
+#banner .features > a.alt::after {
+  display: none !important;
+}
+
+#banner .features > a.alt h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.40);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  width: auto !important;
+}
+
+#banner .features > a.alt p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.78;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.28);
+  width: auto !important;
+  max-width: 500px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 736px) {
+  #banner .features > a.alt {
+    padding: 2rem 1.75rem;
+    border-left: none !important;
+    border-top: 3px solid var(--su-gold) !important;
+    max-width: 100%;
+  }
+  #banner {
+    height: clamp(420px, 75vw, 540px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #banner {
+    height: clamp(380px, 80vw, 500px);
+  }
+}
+
+/* ============ MAIN CONTENT ============ */
+
+#main {
+  background: var(--su-bg);
+  padding: 5rem 0 4rem;
+}
+
+/* ============ SECTION HEADER ============ */
+
+#content > section {
+  border-top-color: var(--su-gold) !important;
+}
+
+#content > section header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.85rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: var(--su-navy);
+  line-height: 1.35;
+  position: relative;
+  padding-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+#content > section header h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 44px;
+  height: 3px;
+  background: var(--su-gold);
+  border-radius: 2px;
+}
+
+#content > section header p {
+  color: var(--su-muted);
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin: 0.25rem 0 1.5rem;
+}
+
+#content > section > p {
+  color: var(--su-muted);
+  font-size: 1rem;
+  line-height: 1.88;
+  max-width: 700px;
+}
+
+/* Second section header (상상 그 이상의 가치) */
+#content section + section header h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--su-navy);
+  margin-bottom: 1.75rem;
+}
+
+/* ============ POSTS GRID ============ */
+
+.posts {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+  margin: 3rem 0 !important;
+  /* Reset flex properties */
+  flex-wrap: unset !important;
+  align-items: unset !important;
+}
+
+/* Reset all the quirky original padding/width rules */
+.posts > article,
+.posts > :nth-child(-n + 2),
+.posts > :nth-last-child(-n + 2),
+.posts > :nth-child(2n + 1),
+.posts > :nth-child(2n) {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.posts > article {
+  background: var(--su-bg-card);
+  border-radius: var(--su-radius);
+  border: 1px solid var(--su-border);
+  box-shadow: var(--su-shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--su-transition), transform var(--su-transition), border-color var(--su-transition);
+  display: flex !important;
+  flex-direction: column;
+}
+
+.posts > article:hover {
+  box-shadow: var(--su-shadow-lg);
+  transform: translateY(-6px);
+  border-color: rgba(201, 164, 87, 0.35);
+}
+
+/* Post image container — fixed aspect ratio */
+.posts > article .image.fit {
+  margin: 0 !important;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  flex-shrink: 0;
+  background: var(--su-bg-soft);
+  display: block;
+}
+
+.posts > article .image.fit a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.posts > article .image.fit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.posts > article:hover .image.fit img {
+  transform: scale(1.07);
+}
+
+/* Post heading */
+.posts > article h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--su-navy);
+  margin: 1.5rem 1.75rem 0.5rem;
+  line-height: 1.5;
+}
+
+/* Post CTA button area */
+.posts > article .actions.fixed {
+  margin: auto 1.75rem 1.75rem !important;
+  padding-top: 0.5rem;
+}
+
+.posts > article .actions.fixed li {
+  padding: 0;
+}
+
+.posts > article .actions.fixed .button {
+  display: inline-block;
+  background: var(--su-gold);
+  color: var(--su-navy) !important;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 0.6em 1.5em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(201, 164, 87, 0.30);
+  transition: all var(--su-transition);
+}
+
+.posts > article .actions.fixed .button:hover {
+  background: var(--su-gold-light);
+  box-shadow: 0 5px 18px rgba(201, 164, 87, 0.48);
+  transform: translateY(-1px);
+  color: var(--su-navy) !important;
+}
+
+/* Posts responsive */
+@media screen and (max-width: 980px) {
+  .posts {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .posts {
+    gap: 1rem !important;
+    margin: 2rem 0 !important;
+  }
+}
+
+/* ============ MINI-POSTS (main content — large) ============ */
+
+.mini-posts:not(.small) article {
+  display: flex;
+  align-items: center;
+  background: var(--su-bg-card);
+  border: 1px solid var(--su-border) !important;
+  border-bottom: 1px solid var(--su-border) !important;
+  border-radius: var(--su-radius);
+  padding: 1.5rem !important;
+  margin-bottom: 1.25rem !important;
+  padding-bottom: 1.5rem !important;
+  box-shadow: var(--su-shadow-sm);
+  transition: box-shadow var(--su-transition), transform var(--su-transition);
+  overflow: hidden;
+}
+
+.mini-posts:not(.small) article:last-of-type {
+  border: 1px solid var(--su-border) !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.mini-posts:not(.small) article:hover {
+  box-shadow: var(--su-shadow-md);
+  transform: translateX(5px);
+}
+
+/* Mini post image */
+.mini-posts:not(.small) article .image {
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 200px !important;
+  min-width: 200px !important;
+  height: 130px !important;
+  margin-right: 2rem !important;
+  margin-bottom: 0 !important;
+  background: var(--su-bg-soft);
+}
+
+.mini-posts:not(.small) article .image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+.mini-posts:not(.small) article .content > p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--su-muted);
+  margin-bottom: 1rem;
+}
+
+.mini-posts:not(.small) article .content a {
+  color: var(--su-text);
+  text-decoration: none;
+  transition: color var(--su-transition);
+}
+
+.mini-posts:not(.small) article .content a:hover {
+  color: var(--su-gold);
+}
+
+.mini-posts:not(.small) article .content .button {
+  display: inline-block;
+  background: transparent;
+  color: var(--su-gold) !important;
+  border: 1.5px solid var(--su-gold);
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.5em 1.3em;
+  text-decoration: none;
+  transition: all var(--su-transition);
+}
+
+.mini-posts:not(.small) article .content .button:hover {
+  background: var(--su-gold);
+  color: var(--su-navy) !important;
+  box-shadow: 0 4px 14px rgba(201, 164, 87, 0.35);
+}
+
+/* Mini-posts large responsive */
+@media screen and (max-width: 736px) {
+  .mini-posts:not(.small) article {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .mini-posts:not(.small) article .image {
+    width: 100% !important;
+    min-width: unset !important;
+    height: 200px !important;
+    margin-right: 0 !important;
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+/* ============ MINI-POSTS SMALL (sidebar icons) ============ */
+
+.mini-posts.small article {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  box-shadow: none;
+  border-bottom: 1px solid var(--su-border) !important;
+  transition: none;
+}
+
+.mini-posts.small article:last-of-type {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Icon container */
+.mini-posts.small article .image {
+  flex-shrink: 0 !important;
+  width: 52px !important;
+  min-width: 52px !important;
+  height: 52px !important;
+  border-radius: 12px !important;
+  background: var(--su-gold-dim) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  margin-right: 1.25rem !important;
+  margin-bottom: 0 !important;
+  aspect-ratio: unset !important;
+}
+
+.mini-posts.small article .image img {
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+.mini-posts.small article .content a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--su-text);
+  line-height: 1.62;
+  text-decoration: none;
+  transition: color var(--su-transition);
+}
+
+.mini-posts.small article .content a:hover {
+  color: var(--su-gold);
+}
+
+/* "More Posts" button */
+.mini-posts.small ul.actions.fixed {
+  margin-top: 1.25rem !important;
+}
+
+.mini-posts.small ul.actions.fixed .button {
+  display: inline-block;
+  background: var(--su-navy) !important;
+  color: #FFFFFF !important;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.6em 1.5em;
+  text-decoration: none;
+  transition: background var(--su-transition), box-shadow var(--su-transition);
+  box-shadow: 0 2px 8px rgba(13, 27, 42, 0.18);
+}
+
+.mini-posts.small ul.actions.fixed .button:hover {
+  background: var(--su-navy-mid) !important;
+  box-shadow: 0 4px 16px rgba(13, 27, 42, 0.25);
+}
+
+/* ============ FEATURES (sidebar accent boxes) ============ */
+
+.features {
+  border-radius: var(--su-radius) !important;
+  overflow: hidden;
+  box-shadow: var(--su-shadow-md);
+}
+
+.features > a {
+  position: relative;
+  overflow: hidden;
+  transition: filter var(--su-transition);
+}
+
+.features > a:hover {
+  filter: brightness(1.10);
+}
+
+.features > a.accent1 {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2152C7 100%) !important;
+}
+
+.features > a.accent1:hover {
+  background: linear-gradient(135deg, #2248A0 0%, #2563EB 100%) !important;
+}
+
+.features > a.accent2 {
+  background: linear-gradient(135deg, #064E3B 0%, #0F7A52 100%) !important;
+}
+
+.features > a.accent2:hover {
+  background: linear-gradient(135deg, #0F7A52 0%, #15803D 100%) !important;
+}
+
+.features > a.accent3 {
+  background: linear-gradient(135deg, #1A1A2E 0%, #2D2D4A 100%) !important;
+}
+
+.features > a.accent3:hover {
+  background: linear-gradient(135deg, #2D2D4A 0%, #3C3C5C 100%) !important;
+}
+
+/* Tone down the Font Awesome icon opacity */
+.features > a::after {
+  opacity: 0.12 !important;
+}
+
+.features > a h2 {
+  font-family: 'Noto Serif KR', serif;
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.55rem;
+}
+
+.features > a p {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* ============ SIDEBAR ============ */
+
+#sidebar > section {
+  border-top-color: var(--su-gold) !important;
+}
+
+#sidebar > section header h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--su-navy);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0;
+  border-left: 3px solid var(--su-gold);
+  padding-left: 0.75rem;
+}
+
+/* ============ GENERAL BUTTONS ============ */
+
+.button {
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all var(--su-transition) !important;
+}
+
+/* ============ FOOTER ============ */
+
+#footer {
+  background: var(--su-navy);
+  border-top: none;
+  padding: 5rem 0 0;
+  position: relative;
+}
+
+/* Gold accent line at top */
+#footer::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--su-gold) 20%,
+    var(--su-gold-light) 60%,
+    transparent 100%
+  );
+}
+
+#footer .content header h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0;
+  line-height: 1.72;
+  margin-bottom: 1.5rem;
+}
+
+#footer .content a {
+  color: rgba(255, 255, 255, 0.55) !important;
+  font-size: 0.9rem;
+  transition: color var(--su-transition);
+}
+
+#footer .content a:hover {
+  color: var(--su-gold) !important;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.50) !important;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color var(--su-transition);
+}
+
+.footer-links a:hover {
+  color: var(--su-gold) !important;
+}
+
+#footer .copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.82rem;
+  margin: 3rem 0 0;
+  padding: 1.75rem 0;
+}
+
+/* ============ NAV PANEL (mobile) ============ */
+
+#navPanel {
+  background: #0D1B2A;
+}
+
+#navPanel .link {
+  color: rgba(255, 255, 255, 0.45) !important;
+  border-top-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+#navPanel .link.depth-0 {
+  color: rgba(255, 255, 255, 0.80) !important;
+}
+
+#navPanel .link:hover {
+  color: var(--su-gold) !important;
+}
+
+#navPanel .close {
+  color: rgba(255, 255, 255, 0.40) !important;
+}
+
+#navPanel .close:hover {
+  color: var(--su-gold) !important;
+}
+
+/* ============ CUSTOM SCROLLBAR ============ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--su-bg-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--su-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--su-pale);
+}
+
+/* ============ POLICY MODAL (keep as-is, update font) ============ */
+
+.policy-modal .policy-header h2 {
+  font-family: 'Noto Serif KR', serif;
+}
+
+.policy-modal .policy-dialog {
+  border-radius: 16px;
+}
