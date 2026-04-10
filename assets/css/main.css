@@ -4310,3 +4310,10 @@ input, select, textarea {
   }
 }
 }
+
+@media screen and (max-width: 768px) {
+  #nav,
+  .toggle {
+    display: none !important;
+  }
+}
