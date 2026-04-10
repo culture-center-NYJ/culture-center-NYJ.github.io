@@ -1,0 +1,21 @@
+# Site settings
+title: 수모어
+description: 탁월함과 더 큰 가치를 제공하는 프리미엄 브랜드
+url: "https://culture-center-nyj.github.io"
+baseurl: ""
+lang: ko
+
+# SEO & Meta
+author: 수모어
+name: 수모어
+email: park001@gmail.com  # 연락처 있으면 넣기
+
+# Jekyll plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag  # GitHub Pages에서 지원됨
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
